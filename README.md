@@ -32,23 +32,23 @@ graph TD
 
 ## installation
 
-# Clone repository
+- Clone repository
 
-git clone https://github.com/yourusername/habit-tracker-app.git
+git clone https://github.com/jeyjenushan/HabitTrackingApp.git
 cd habit-tracker-app
 
-# Install dependencies
+- Install dependencies
 
 npm install
 
-# Install pods (iOS)
+- Install pods (iOS)
 
 cd ios && pod install && cd ..
 
-# Run Android
+- Run Android
 
 npx react-native run-android
 
-# Run iOS
+- Run iOS
 
 npx react-native run-ios
