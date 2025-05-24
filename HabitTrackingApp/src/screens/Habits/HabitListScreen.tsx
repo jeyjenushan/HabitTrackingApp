@@ -34,17 +34,15 @@ const HabitListScreen = ({ navigation }:any) => {
     if (filter === 'all') return true;
     return habit.frequency === filter;
   });
-
-
-const handleUpdateHabit = (updatedHabit: Habit) => {
-  navigation.navigate({
-    name: 'EditHabit', 
-    params: { updatedHabit },
-    merge: true
-  });
-};
-
-  
+  const handleUpdateHabit = (habit: Habit) => {
+    navigation.navigate('EditHabit', { 
+      habit,
+      onSave: (habit: Habit) => {
+    
+        refresh();
+      }
+    });
+  };
 
 
 
