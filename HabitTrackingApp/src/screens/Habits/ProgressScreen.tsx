@@ -11,9 +11,6 @@ import { AuthContext } from '../../context/AuthContext';
 
 const ProgressScreen = () => {
 const { user } = useContext(AuthContext);
-
-    // Refresh data when screen comes into focus
-
   const { habits,refresh } = useHabits(user?.id || "");
 
   const today = new Date().toISOString().split('T')[0];

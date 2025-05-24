@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { View, StyleSheet, FlatList, Text, TouchableOpacity, ScrollView, Modal } from 'react-native';
+import React, { useState, useContext } from 'react';
+import { View, StyleSheet, FlatList, Text, TouchableOpacity, Modal } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import HabitCard from '../../components/HabitCard';
 import useHabits from '../../hooks/useHabits';
 import Button from '../../components/Button';
-import ProgressChart from '../../components/ProgressChart';
 import colors from '../../constants/colors';
-import { getTodayDate } from '../../storage/storage'
 import { Habit } from '../../types/types';
 import { AuthContext } from '../../context/AuthContext';
 
@@ -15,7 +13,6 @@ const HabitListScreen = ({ navigation }:any) => {
   const { habits, loading, toggleHabitCompletion, refresh,deleteHabit } = useHabits(user?.id || " "
   );
   const [filter, setFilter] = useState<'all' | 'daily' | 'weekly'>('all');
-  const [today] = useState(getTodayDate());
   const [selectedHabitId, setSelectedHabitId] = useState<string | null>(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
@@ -37,16 +34,17 @@ const HabitListScreen = ({ navigation }:any) => {
     if (filter === 'all') return true;
     return habit.frequency === filter;
   });
-  const handleUpdateHabit = (habit: Habit) => {
-    navigation.navigate('EditHabit', { 
-      habit,
-      onSave: (updatedHabit: Habit) => {
-        // This callback will be executed when the habit is saved in EditHabitScreen
-        refresh(); // Refresh the list to show updated data
-        // You could also update local state if you prefer
-      }
-    });
-  };
+
+
+const handleUpdateHabit = (updatedHabit: Habit) => {
+  navigation.navigate({
+    name: 'EditHabit', 
+    params: { updatedHabit },
+    merge: true
+  });
+};
+
+  
 
 
 

@@ -12,11 +12,11 @@ interface HomeScreenProps {
   navigation: HomeScreenNavigationProp;
 }
 
-const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
+const HomeScreen = ({ navigation }:HomeScreenProps) => {
   const { user, logout } = useContext(AuthContext);
 
   if (!user) {
-    return <ActivityIndicator size="large" />; // Handle case where user is null
+    return <ActivityIndicator size="large" />; 
   }
   return (
     <View style={styles.container}>

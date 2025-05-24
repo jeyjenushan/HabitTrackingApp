@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Habit } from '../types/types';
 import { getTodayDate } from '../storage/storage';
 
-// Helper function to get user-specific habits key
+
 const getHabitsKey = (userId: string) => `@habits_${userId}`;
 
 export const getHabits = async (userId: string): Promise<Habit[]> => {
@@ -33,21 +33,23 @@ export const getHabitById = async (userId: string, id: string): Promise<Habit | 
 export const markHabitAsComplete = async (
   userId: string,
   habitId: string,
-  date: string = getTodayDate()
+  date: string = getTodayDate(),
+  isComplete:boolean
 ): Promise<void> => {
   const habits = await getHabits(userId);
   const updatedHabits = habits.map(habit => {
-    if (habit.id === habitId && !habit.completedDates.includes(date)) {
+    if (habit.id === habitId) {
       return {
         ...habit,
-        completedDates: [...habit.completedDates, date],
+        completedDates: isComplete
+          ? [...habit.completedDates.filter(d => d !== date), date] 
+          : habit.completedDates.filter(d => d !== date), 
       };
     }
     return habit;
   });
   await saveHabits(userId, updatedHabits);
 };
-
 export const updateHabit = async (userId: string, updatedHabit: Habit): Promise<void> => {
   const habits = await getHabits(userId);
   const updatedHabits = habits.map(habit => 

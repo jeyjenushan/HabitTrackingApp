@@ -10,7 +10,7 @@ interface HabitCardProps {
   onUpdate: () => void;
 }
 
-const HabitCard: React.FC<HabitCardProps> = ({ habit, onToggle,onDelete,onUpdate }) => {
+const HabitCard = ({ habit, onToggle,onDelete,onUpdate }:HabitCardProps) => {
   const today = new Date().toISOString().split('T')[0];
   const isCompleted = habit.completedDates.includes(today);
 

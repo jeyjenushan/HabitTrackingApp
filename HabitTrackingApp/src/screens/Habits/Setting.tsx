@@ -1,13 +1,10 @@
 import React, { useContext } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView } from "react-native";
-
 import { LogOut, Trash2, User, Info, Shield } from "lucide-react-native";
-
-import { Platform } from "react-native";
 import colors from "../../constants/colors";
 import Button from "../../components/Button";
 import { AuthContext } from "../../context/AuthContext";
-import { clearUser } from "../../services/authService";
+
 
 export default function Setting() {
   const{user,logout,clearAllData}=useContext(AuthContext)
@@ -15,12 +12,10 @@ export default function Setting() {
   
   const handleSignOut = () => {
   logout()
-    
   };
   
   const handleClearData = () => {
 
-    
     Alert.alert(
       "Clear All Data",
       "Are you sure you want to delete all your habits and progress? This action cannot be undone.",

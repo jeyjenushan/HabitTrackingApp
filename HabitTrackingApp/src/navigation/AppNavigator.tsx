@@ -4,15 +4,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { AuthContext } from '../context/AuthContext';
 import RegisterScreen from '../screens/Auth/RegisterScreen';
 import HomeScreen from '../screens/HomeScreen';
-import HabitListScreen from '../screens/Habits/HabitListScreen';
-import AddHabitScreen from '../screens/Habits/AddHabitScreen';
-import ProgressScreen from '../screens/Habits/ProgressScreen';
 import { ActivityIndicator } from 'react-native';
 import { Habit } from '../types/types';
 import EditHabitScreen from '../screens/Habits/EditHabitScreen';
 import LayoutScreen from '../screens/Habits/LayoutScreen';
 
-
+//Navigation related steps
 export type RootStackParamList = {
 
   Register: undefined;
@@ -22,7 +19,7 @@ export type RootStackParamList = {
   Progress: undefined;
   EditHabit: { 
     habit: Habit;
-    onSave?: (updatedHabit: Habit) => void; // Callback for saving
+    onSave?: (updatedHabit: Habit) => void; 
   };
   MainApp:undefined
 };
@@ -33,17 +30,17 @@ const AppNavigator = () => {
   const { user, loading } = React.useContext(AuthContext);
 
   if (loading) {
-    return <ActivityIndicator size="large" />; // Or show a loading spinner
+    return <ActivityIndicator size="large" />; 
   }
 
   return (
     <NavigationContainer >
          <Stack.Navigator
-        initialRouteName={user ? "Home" : "Register"} // Critical fix
-        screenOptions={{ headerShown: false }} // Global hide header
+        initialRouteName={user ? "Home" : "Register"} 
+        screenOptions={{ headerShown: false }} 
       >
         {user ? (
-          // Authenticated screens
+        
           <>
                  <Stack.Screen 
               name="MainApp" 
@@ -70,7 +67,6 @@ const AppNavigator = () => {
 
           </>
         ) : (
-          // Auth screens
           <>
     
             <Stack.Screen 

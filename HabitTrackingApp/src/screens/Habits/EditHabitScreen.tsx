@@ -13,7 +13,7 @@ interface EditHabitScreenProps {
   route: RouteProp<RootStackParamList, 'EditHabit'>;
 }
 
-const EditHabitScreen: React.FC<EditHabitScreenProps> = ({ route }) => {
+const EditHabitScreen = ({ route }:EditHabitScreenProps) => {
   const { habit,onSave } = route.params;
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 

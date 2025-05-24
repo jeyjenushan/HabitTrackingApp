@@ -9,7 +9,7 @@ export const registerUser = async (name: string, email: string, password: string
     id: Date.now().toString(),
     name,
     email,
-    password, // Note: In a real app, never store plain passwords
+    password,
   };
   await storeUser(user);
   return user;
@@ -52,17 +52,12 @@ export const clearUser = async (): Promise<void> => {
   }
 };
 
-// Add this to your authService.ts
+
 export const clearAllUserData = async (userId: string): Promise<void> => {
   try {
-    // Clear authentication data
+
     await AsyncStorage.removeItem(USER_KEY);
-    
-    // Clear habits data
     await clearUserHabits(userId);
-    
-    // Clear any other user-specific data here
-    // For example: await AsyncStorage.removeItem(`@settings_${userId}`);
   } catch (e) {
     console.error('Failed to clear user data', e);
     throw e;

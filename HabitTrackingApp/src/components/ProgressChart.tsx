@@ -8,11 +8,11 @@ interface ProgressChartProps {
   label?: string;
 }
 
-const ProgressChart: React.FC<ProgressChartProps> = ({ 
-  percentage, 
+const ProgressChart = ({
+  percentage,
   color = colors.primary,
-  label 
-}) => {
+  label
+}: ProgressChartProps) => {
   return (
     <View style={styles.container}>
       {label && <Text style={styles.label}>{label}</Text>}
@@ -39,11 +39,11 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     marginBottom: 5,
-    color: colors.dark,
+    color: colors.text,
   },
   progressBar: {
     height: 20,
-    backgroundColor: colors.light,
+    backgroundColor: colors.gray,
     borderRadius: 10,
     overflow: 'hidden',
     marginBottom: 5,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
   percentageText: {
     fontSize: 14,
-    color: colors.dark,
+    color: colors.text,
     textAlign: 'right',
   },
 });

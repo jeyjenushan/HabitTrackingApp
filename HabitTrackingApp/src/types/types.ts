@@ -40,5 +40,5 @@ export type User = {
     personal: string;
     learning: string;
     fitness: string;
-    [key: string]: string; // Add index signature for dynamic access
+    [key: string]: string; 
   }

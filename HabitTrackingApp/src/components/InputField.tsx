@@ -2,10 +2,10 @@ import React from 'react';
 import { TextInput, StyleSheet, TextInputProps } from 'react-native';
 
 interface InputFieldProps extends TextInputProps {
-  // You can add custom props here if needed
+
 }
 
-const InputField: React.FC<InputFieldProps> = (props) => {
+const InputField = (props:InputFieldProps) => {
   return (
     <TextInput
       style={styles.input}

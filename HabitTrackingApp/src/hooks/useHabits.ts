@@ -2,12 +2,12 @@ import { useState, useEffect, useCallback } from 'react';
 import { getHabits, saveHabits, markHabitAsComplete } from '../services/habitService';
 import { Habit } from '../types/types';
 import { getTodayDate } from '../storage/storage';
- // Assuming you have an auth hook or context
+
 
 const useHabits = (userId: string) => {
   const [habits, setHabits] = useState<Habit[]>([]);
   const [loading, setLoading] = useState(true);
-  // const { user } = useAuth(); // Alternative if you want to get userId from context
+
 
   const loadHabits = useCallback(async () => {
     try {
@@ -58,12 +58,14 @@ const useHabits = (userId: string) => {
         return habit;
       });
       setHabits(updatedHabits);
-
-      // Then persist to storage
-      await markHabitAsComplete(userId, habitId, date);
+         const updatedHabit = updatedHabits.find(h => h.id === habitId);
+    if (!updatedHabit) {
+      throw new Error("Habit not found after update");
+    }
+      const isNowCompleted = updatedHabit.completedDates.includes(date);
+      await markHabitAsComplete(userId, habitId, date,isNowCompleted);
     } catch (error) {
       console.error('Failed to toggle habit completion:', error);
-      // Revert local state if API call fails
       loadHabits();
     }
   };

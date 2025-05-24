@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { View, Text, TextInput, StyleSheet, Alert, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { AuthContext } from '../../context/AuthContext';
-import { loginUser, registerUser } from '../../services/authService';
+import {  registerUser } from '../../services/authService';
 import colors from '../../constants/colors';
 import Button from '../../components/Button';
 
@@ -63,7 +63,7 @@ const RegisterScreen = ({ navigation }:any) => {
         onChangeText={setName}
         style={[
           styles.input,
-          isFocused && styles.focusedInput // Optional extra styling
+          isFocused && styles.focusedInput 
         ]}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
@@ -78,7 +78,7 @@ const RegisterScreen = ({ navigation }:any) => {
         onChangeText={setEmail}
         style={[
           styles.input,
-          isFocused && styles.focusedInput // Optional extra styling
+          isFocused && styles.focusedInput 
         ]}
         keyboardType="email-address"
         autoCapitalize="none"
@@ -95,7 +95,7 @@ const RegisterScreen = ({ navigation }:any) => {
         secureTextEntry
         style={[
           styles.input,
-          isFocused && styles.focusedInput // Optional extra styling
+          isFocused && styles.focusedInput 
         ]}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
