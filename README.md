@@ -2,7 +2,7 @@
 
 A mobile application to track daily/weekly habits with progress tracking using AsyncStorage.
 
-[![App Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://drive.google.com/file/d/1nRq6R8UstHOmir4IS92SNT8GgoQ3GLcZ/view?usp=sharing)
+[![App Demo Video]](https://drive.google.com/file/d/1nRq6R8UstHOmir4IS92SNT8GgoQ3GLcZ/view?usp=sharing)
 
 ## Features ✨
 
