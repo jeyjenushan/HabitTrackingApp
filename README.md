@@ -2,10 +2,7 @@
 
 A mobile application to track daily/weekly habits with progress tracking using AsyncStorage.
 
-![App Screenshot](https://example.com/your-app-screenshot-url.png)  
-_(Replace with your actual app screenshot URL)_
-
-[![App Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+[![App Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://drive.google.com/file/d/1nRq6R8UstHOmir4IS92SNT8GgoQ3GLcZ/view?usp=sharing)
 
 ## Features ✨
 
@@ -30,6 +27,29 @@ graph TD
     E --> H[Settings]
 ```
 
+---
+
+## 👩‍💻 Author
+
+**Jeyaruban Jenushan**  
+Third Year Software Engineering Undergraduate  
+[GitHub Profile](https://github.com/jeyjenushan)
+
+---
+
+### 📸 Screenshots
+
+|     |     |     |
+| --- | --- | --- |
+
+| ![image1](ReadMeAssets/RegisterScreen.png) | ![image2](ReadMeAssets/HomeScreen.png) | ![image3](ReadMeAssets/Habits.png) |
+| ![image4](ReadMeAssets/AddHabitScreen.png) | ![image5](ReadMeAssets/updateHabit.png) | ![image6](ReadMeAssets/DeleteModel.png) | ![image7](ReadMeAssets/Progress.png) | ![image8](ReadMeAssets/Settings.png)|
+
+### 📋 Prerequisites
+
+- Node.js
+- Android/iOS device or emulator
+
 ## installation
 
 - Clone repository
@@ -52,3 +72,48 @@ npx react-native run-android
 - Run iOS
 
 npx react-native run-ios
+
+---
+
+## 📁 Project Structure
+
+```bash
+src/
+├── assets/                  # App icons, images (to be created)
+├── components/              # Reusable UI components
+│   ├── Button.tsx     # Moved to root of components
+│   ├── CategoryPicker.tsx
+│   │
+│   ├── ProgressChart.tsx
+│   ├── InputField.tsx
+│   └── HabitCard.tsx
+├── constants/               # Constant values
+│   ├── Colors.ts
+│
+│
+│
+├── screens/
+│   ├── Auth/
+│   │   └── RegisterScreen.tsx
+│   ├── Habits/
+│   │   ├── AddHabitScreen.tsx
+│   │   ├── EditHabitScreen.tsx
+│   │   ├── HabitListScreen.tsx
+│   │   └── LayoutScreen.tsx
+│   ├── ProgressScreen.tsx
+│   ├── Setting.tsx
+│   └── HomeScreen.tsx
+├── services/                # Business logic/services
+│   ├── authService.ts
+│   ├── habitService.ts
+│
+├── types/                   # Type definitions
+│   ├── types.ts
+│
+│── storage/
+│       └── storage.ts
+
+│
+└── App.tsx                  # Main entry point
+└── ...
+```
